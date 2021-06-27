@@ -10,16 +10,19 @@
 
 int main(){
     Sales_item cans, cur;
+    int cnt = 0;
     if(std::cin >> cans){
+        cnt = 1;
         while(std::cin >> cur){
             if(cans.isbn() == cur.isbn())
-                cans += cur;
+                cnt++;
             else{
-                std::cout << cans << std::endl;
+                std::cout << cans.isbn() << " " << cnt << std::endl;
                 cans = cur;
+                cnt = 1;
             }
         }
-        std::cout << cans << std::endl;
+        std::cout << cans.isbn() << " " << cnt << std::endl;
     }
     return 0;
 }
